@@ -1,3 +1,4 @@
 a.out
 main
 a.out.*
+*.o

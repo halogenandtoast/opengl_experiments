@@ -5,6 +5,12 @@ void display(void)
 {
   glClearColor(0, 0, 0, 0);
   glClear(GL_COLOR_BUFFER_BIT);
+  glColor4f(1, 0, 1, 1);
+  glBegin(GL_TRIANGLES);
+    glVertex3f(0, 0.5, 0);
+    glVertex3f(0.5, -0.5, 0);
+    glVertex3f(-0.5, -0.5, 0);
+  glEnd();
   glutSwapBuffers();
 }
 

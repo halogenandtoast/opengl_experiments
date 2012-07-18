@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
   glewExperimental = GL_TRUE;
   glewInit();
 
-  program = new Program("main.vert.glsl", "main.frag.glsl");
+  program = new Program("shaders/main.vert.glsl", "shaders/main.frag.glsl");
   position = glGetAttribLocation(program->getProgram(), "position");
   glGenBuffers(1, &vbo);
   glBindBuffer(GL_ARRAY_BUFFER, vbo);

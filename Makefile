@@ -1,18 +1,17 @@
 CC = g++
-LDFLAGS=-framework GLUT -framework OpenGL -lGLEW
+LDFLAGS = -framework GLUT -framework OpenGL -lGLEW
+CFLAGS = -O
+SRC = src/main.cc src/program.cc src/shader.cc
+OBJ = ${SRC:.c=.o}
+
 all: main
 
-main: main.o shader.o program.o
-	${CC} ${LDFLAGS} main.o shader.o program.o -o main
+.c.o:
+	${CC} -c ${CFLAGS} -o $@ $<
 
-main.o: main.cc
-	${CC} -c main.cc
+main: ${OBJ}
+	${CC} ${LDFLAGS} ${OBJ} -o main
 
-shader.o: shader.cc
-	${CC} -c shader.cc
-
-program.o: program.cc
-	${CC} -c program.cc
 
 clean:
-	rm -rf *o main
+	rm -rf src/*.o main
